@@ -13,11 +13,14 @@ jobs: # Define a job that runs on Ubuntu
     E2ETest: # Name the job "E2ETest"
         runs-on: ubuntu-latest # Use the latest version of Ubuntu
         steps: # Define the steps that make up the job
-            - uses: actions/checkout@v4 # uses the step "Checkout"
-            - name: install packages # Name the step "install packages"
-              run: npm install # Run the command "npm install"
-            - name: run E2E Tests # Name the step "tests"
-              run: npm run test:e2e # Run the command "npm run test:e2e"
+            - name: Checkout # Name the step "Checkout"
+              uses: actions/checkout@v4 # uses the step "Checkout"
+              with: # Define the input for the step
+                install: npm install # Define the input "install" for the step
+            - name: Cypress run # Name the step "Cypress run"
+              uses: cypress-io/github-action@v6 # uses the step "Cypress run"
+              with:
+                start: npm run dev # Define the input "start" for the step
     UnitTest: # Name the job "UnitTest"
         runs-on: ubuntu-latest # Use the latest version of Ubuntu
         steps: # Define the steps that make up the job
