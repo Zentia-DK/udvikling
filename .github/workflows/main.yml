@@ -10,6 +10,22 @@ jobs: # Define a job that runs on Ubuntu
               run: npm install # Run the command "npm install"
             - name: lint # Name the step "lint"
               run: npm run lint # Run the command "npm run lint"
-              
+    E2ETest: # Name the job "E2ETest"
+        runs-on: ubuntu-latest # Use the latest version of Ubuntu
+        steps: # Define the steps that make up the job
+            - uses: actions/checkout@v4 # uses the step "Checkout"
+            - name: install packages # Name the step "install packages"
+              run: npm install # Run the command "npm install"
+            - name: run E2E Tests # Name the step "tests"
+              run: npm run test:e2e # Run the command "npm run test:e2e"
+    UnitTest: # Name the job "UnitTest"
+        runs-on: ubuntu-latest # Use the latest version of Ubuntu
+        steps: # Define the steps that make up the job
+            - uses: actions/checkout@v4 # uses the step "Checkout"
+            - name: install packages # Name the step "install packages"
+              run: npm install # Run the command "npm install"
+            - name: run unit tests # Name the step "tests"
+              run: npm run test # Run the command "npm run test"
+
 
             
