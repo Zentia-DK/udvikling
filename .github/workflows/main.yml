@@ -25,7 +25,7 @@ jobs: # Define a job that runs on Ubuntu
             - name: install packages # Name the step "install packages"
               run: npm install # Run the command "npm install"
             - name: run unit tests # Name the step "tests"
-              run: npm run test # Run the command "npm run test"
+              run: npm run test:unit # Run the command "npm run test:unit"
 
 
             
